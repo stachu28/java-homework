@@ -4,15 +4,15 @@ public class RangeOfVariables {
     static void main(String[] args) {
         int x = 5;
 
-        zmienX(x);
+        varX(x);
 
-        System.out.println("zmienna x w main: " + x);
+        System.out.println("Variable 'x' in main: " + x);
     }
 
-    private static void zmienX(int x) {
+    private static void varX(int x) {
         x = 100;
 
-        System.out.println("zmienna x w metodzie: " + x);
+        System.out.println("Variable 'x' in method: " + x);
     }
 
 

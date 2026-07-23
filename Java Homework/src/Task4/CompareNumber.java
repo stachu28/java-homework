@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class CompareNumber {
     static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj pierwszą liczbę: ");
+        System.out.println("Type the first number: ");
         int a = scanner.nextInt();
-        System.out.println("Podaj drugą liczbę: ");
+        System.out.println("Type the second number: ");
         int b = scanner.nextInt();
         max(a, b);
     }

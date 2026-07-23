@@ -2,12 +2,12 @@ package Task4;
 
 public class SimpleWelcomeMassage {
     static void main(String[] args) {
-        powitaj("Bartek");
-        powitaj("Maciek");
-        powitaj("Arek");
+        welcomeMsg("Bart");
+        welcomeMsg("Mathew");
+        welcomeMsg("Joe");
     }
 
-    private static void powitaj(String imie) {
-        System.out.println("Cześć " + imie + "!");
+    private static void welcomeMsg(String imie) {
+        System.out.println("Hello " + imie + "!");
     }
 }

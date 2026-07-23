@@ -20,9 +20,9 @@ public class Palindorm {
             }
         }
 
-        if (isPalidrome == true) {
+        if (isPalidrome) {
             System.out.println("Tekst jest palidromem!");
-        } else if (isPalidrome != true) {
+        } else if (!isPalidrome) {
             System.out.println("Tekst nie jest palidromem!");
         }
     }

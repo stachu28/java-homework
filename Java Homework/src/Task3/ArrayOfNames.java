@@ -5,7 +5,7 @@ public class ArrayOfNames {
         String[] arrayOfNames = {"John", "Kate", "Kris"};
 
         for (int i = 0; i < arrayOfNames.length; i++) {
-            System.out.println("Cześć, " + arrayOfNames[i] + "!");
+            System.out.println("Hello, " + arrayOfNames[i] + "!");
         }
     }
 }
