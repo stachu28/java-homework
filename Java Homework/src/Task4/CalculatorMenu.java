@@ -36,7 +36,7 @@ public class CalculatorMenu {
         double b = scanner.nextDouble();
 
         System.out.println("Result = " + (a * b));
-    }
+    }3
 
     private static void subtract() {
         System.out.println("Type in the first number: ");
