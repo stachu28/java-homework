@@ -12,5 +12,8 @@ public class Main {
         Car car4 = new Car("VW", 2021);
         Car car5 = new Car("Porsche", 2019);
 
+        System.out.println();
+        car3.showDifference();
+        car4.showDifference();
     }
 }

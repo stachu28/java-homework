@@ -5,6 +5,8 @@ public class Car {
     int yearOfProduction;
 
     public Car(String brand, int yearOfProduction) {
+        this.brand = brand;
+        this.yearOfProduction = yearOfProduction;
     }
 
     @Override
@@ -16,5 +18,10 @@ public class Car {
         brand = "Unknown";
         yearOfProduction = 2000;
     }
+
+    public void showDifference() {
+        String localBrand = "brand";
+        System.out.println("local brand: " + localBrand);
+        System.out.println("this brand: " + this.brand);}
 
 }
