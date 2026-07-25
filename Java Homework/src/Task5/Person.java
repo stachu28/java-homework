@@ -26,5 +26,13 @@ public class Person {
     public void introduceYourself(String greetings) {
         System.out.printf("%s! My name is %s, and I am %d!\n", greetings, name, age);
     }
+
+    public boolean isAdult() {
+        if (age >= 18) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 

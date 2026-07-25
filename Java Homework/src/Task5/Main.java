@@ -91,5 +91,18 @@ public class Main {
         System.out.println("Through object: " + person10.numberOfPeople);
         System.out.println("Through object: " + person11.numberOfPeople);
         System.out.println("Through object: " + person12.numberOfPeople);
-    }
+
+        System.out.println("\n *** 16 ***");
+        Person[] personArray = {person1, person2, person3, person4, person5, person6, person7, person8, person9,
+                person10, person11, person12};
+
+        System.out.println("Adult Persons in the Array: ");
+
+        for (int i = 0; i < personArray.length; i++) {
+            if (personArray[i].isAdult()) {
+                System.out.println(" - " + personArray[i].name + ", " + personArray[i].age + ".");
+            }
+        }
+
+       }
 }
