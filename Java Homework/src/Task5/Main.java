@@ -73,5 +73,13 @@ public class Main {
         person5.introduceYourself("Hello");
         person6.introduceYourself("Welcome");
 
+        System.out.println("\n *** 14 ***");
+        Person person7 = new Person ("Kate", 24);
+        Person person8 = new Person ("Kate");
+        Person person9 = new Person ();
+        person7.introduceYourself();
+        person8.introduceYourself();
+        person9.introduceYourself();
+
     }
 }
