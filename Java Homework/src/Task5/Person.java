@@ -9,6 +9,11 @@ public class Person {
         this.age = age;
     }
 
+    public Person(String name) {
+        this.name = name;
+        this.age = 0;
+    }
+
     public void introduceYourself() {
         System.out.printf("My name is %s, and I am %d!\n", name, age);
     }
