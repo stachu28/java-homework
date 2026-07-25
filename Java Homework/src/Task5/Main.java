@@ -27,5 +27,9 @@ public class Main {
         System.out.println("\n *** 6 ***");
         Car car6 = new Car();
         System.out.println(car6);
+
+        System.out.println("\n *** 7 ***");
+        car4.introduceYourself();
+        car6.introduceYourself();
     }
 }

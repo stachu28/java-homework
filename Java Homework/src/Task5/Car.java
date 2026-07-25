@@ -27,4 +27,8 @@ public class Car {
     public void changeBrand(String brand) {
         this.brand = brand;
     }
+
+    public void introduceYourself() {
+        System.out.printf("I am a car of brand %s from year %d.", this.brand, this.yearOfProduction);
+    }
 }
