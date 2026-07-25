@@ -11,4 +11,9 @@ public class Car {
     public String toString() {
         return brand + " " + yearOfProduction;
     }
+
+    public Car() {
+        brand = "Unknown";
+        yearOfProduction = 2000;
+    }
 }
