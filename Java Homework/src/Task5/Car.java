@@ -15,8 +15,7 @@ public class Car {
     }
 
     public Car() {
-        brand = "Unknown";
-        yearOfProduction = 2000;
+        this("Unknown", 2000);
     }
 
     public void showDifference() {
