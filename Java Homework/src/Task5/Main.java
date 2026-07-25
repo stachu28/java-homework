@@ -7,5 +7,10 @@ public class Main {
 
         Car car2 = new Car();
         System.out.println(car2);
+
+        Car car3 = new Car("BMW", 2023);
+        Car car4 = new Car("VW", 2021);
+        Car car5 = new Car("Porsche", 2019);
+
     }
 }
