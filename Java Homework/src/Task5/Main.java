@@ -37,5 +37,16 @@ public class Main {
 
         System.out.println("\n *** 9 ***");
         System.out.println(Car.getCount());
+
+        System.out.println("\n *** 10 ***");
+        Car[] cars = new Car[3];
+        cars[0] = new Car("Toyota", 2023);
+        cars[1] = new Car("Kia", 2013);
+        cars[2] = new Car("Hyundai", 2020);
+
+        System.out.println("Cars in an array: ");
+        for (int i = 0; i < cars.length; i++) {
+            System.out.println(cars[i].brand + " " + cars[i].yearOfProduction);
+        }
     }
 }
