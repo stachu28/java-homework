@@ -10,7 +10,11 @@ public class Person {
     }
 
     public void introduceYourself() {
-        System.out.printf("Hi! I'm %s(%d)!\n", name, age);
+        System.out.printf("My name is %s, and I am %d!\n", name, age);
+    }
+
+    public void introduceYourself(String greetings) {
+        System.out.printf("%s! My name is %s, and I am %d!\n", greetings, name, age);
     }
 }
 

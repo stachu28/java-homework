@@ -58,5 +58,10 @@ public class Main {
         person1.introduceYourself();
         person2.introduceYourself();
         person3.introduceYourself();
+
+        System.out.println("\n *** 12 ***");
+        person1.introduceYourself("Hello");
+        person2.introduceYourself("Greetings");
+        person3.introduceYourself("Nice to meet you");
     }
 }
