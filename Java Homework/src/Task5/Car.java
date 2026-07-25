@@ -3,10 +3,12 @@ package Task5;
 public class Car {
     String brand;
     int yearOfProduction;
+    static int counter = 0;
 
     public Car(String brand, int yearOfProduction) {
         this.brand = brand;
         this.yearOfProduction = yearOfProduction;
+        counter++;
     }
 
     @Override
@@ -30,5 +32,13 @@ public class Car {
 
     public void introduceYourself() {
         System.out.printf("I am a car of brand %s from year %d.", this.brand, this.yearOfProduction);
+    }
+
+    public static void classDescription() {
+        System.out.println("This class represents cars.");
+    }
+
+    public static String getCount(){
+        return "Number of cars created is: " + counter;
     }
 }

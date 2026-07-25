@@ -31,5 +31,11 @@ public class Main {
         System.out.println("\n *** 7 ***");
         car4.introduceYourself();
         car6.introduceYourself();
+
+        System.out.println("\n *** 8 ***");
+        Car.classDescription();
+
+        System.out.println("\n *** 9 ***");
+        System.out.println(Car.getCount());
     }
 }
