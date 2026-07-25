@@ -47,6 +47,16 @@ public class Main {
         System.out.println("Cars in an array: ");
         for (int i = 0; i < cars.length; i++) {
             System.out.println(cars[i].brand + " " + cars[i].yearOfProduction);
+
         }
+
+        System.out.println("\n *** 11 ***");
+        Person person1 = new Person ("John", 24);
+        Person person2 = new Person ("Peter", 22);
+        Person person3 = new Person ("Mark", 43);
+
+        person1.introduceYourself();
+        person2.introduceYourself();
+        person3.introduceYourself();
     }
 }
