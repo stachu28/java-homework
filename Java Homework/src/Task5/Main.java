@@ -81,5 +81,15 @@ public class Main {
         person8.introduceYourself();
         person9.introduceYourself();
 
+        System.out.println("\n *** 15 ***");
+        Person person10 = new Person("Anna", 24);
+        Person person11 = new Person("Anna");
+        Person person12 = new Person();
+
+        System.out.println("Through class: " + Person.numberOfPeople);
+
+        System.out.println("Through object: " + person10.numberOfPeople);
+        System.out.println("Through object: " + person11.numberOfPeople);
+        System.out.println("Through object: " + person12.numberOfPeople);
     }
 }
