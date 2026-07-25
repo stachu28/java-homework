@@ -22,6 +22,10 @@ public class Car {
     public void showDifference() {
         String localBrand = "brand";
         System.out.println("local brand: " + localBrand);
-        System.out.println("this brand: " + this.brand);}
+        System.out.println("this brand: " + this.brand);
+    }
 
+    public void changeBrand(String brand) {
+        this.brand = brand;
+    }
 }
