@@ -34,5 +34,9 @@ public class Person {
             return false;
         }
     }
+
+    public int compareAge(Person other) {
+        return this.age - other.age;
+    }
 }
 

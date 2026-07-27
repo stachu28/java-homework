@@ -51,9 +51,9 @@ public class Main {
         }
 
         System.out.println("\n *** 11 ***");
-        Person person1 = new Person ("John", 24);
-        Person person2 = new Person ("Peter", 22);
-        Person person3 = new Person ("Mark", 43);
+        Person person1 = new Person("John", 24);
+        Person person2 = new Person("Peter", 22);
+        Person person3 = new Person("Mark", 43);
 
         person1.introduceYourself();
         person2.introduceYourself();
@@ -65,18 +65,18 @@ public class Main {
         person3.introduceYourself("Nice to meet you");
 
         System.out.println("\n *** 13 ***");
-        Person person4 = new Person ("Kate");
-        Person person5 = new Person ("Pete");
-        Person person6 = new Person ("Kris");
+        Person person4 = new Person("Kate");
+        Person person5 = new Person("Pete");
+        Person person6 = new Person("Kris");
 
         person4.introduceYourself();
         person5.introduceYourself("Hello");
         person6.introduceYourself("Welcome");
 
         System.out.println("\n *** 14 ***");
-        Person person7 = new Person ("Kate", 24);
-        Person person8 = new Person ("Kate");
-        Person person9 = new Person ();
+        Person person7 = new Person("Kate", 24);
+        Person person8 = new Person("Kate");
+        Person person9 = new Person();
         person7.introduceYourself();
         person8.introduceYourself();
         person9.introduceYourself();
@@ -104,5 +104,10 @@ public class Main {
             }
         }
 
-       }
+        System.out.println("\n *** 17 ***");
+        Person person13 = new Person("Joe", 47);
+        Person person14 = new Person("Mark", 26);
+        System.out.println(person13.compareAge(person14));
+
+    }
 }
