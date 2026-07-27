@@ -45,8 +45,8 @@ public class Main {
         cars[2] = new Car("Hyundai", 2020);
 
         System.out.println("Cars in an array: ");
-        for (int i = 0; i < cars.length; i++) {
-            System.out.println(cars[i].brand + " " + cars[i].yearOfProduction);
+        for (Car car : cars) {
+            System.out.println(car.brand + " " + car.yearOfProduction);
 
         }
 
@@ -98,9 +98,9 @@ public class Main {
 
         System.out.println("Adult Persons in the Array: ");
 
-        for (int i = 0; i < personArray.length; i++) {
-            if (personArray[i].isAdult()) {
-                System.out.println(" - " + personArray[i].name + ", " + personArray[i].age + ".");
+        for (Person person : personArray) {
+            if (person.isAdult()) {
+                System.out.println(" - " + person.name + ", " + person.age + ".");
             }
         }
 
