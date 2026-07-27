@@ -109,5 +109,11 @@ public class Main {
         Person person14 = new Person("Mark", 26);
         System.out.println(person13.compareAge(person14));
 
+        System.out.println("\n *** 18 ***");
+        Product p1 = new Product("Shampoo", 15.99);
+        Product p2 = new Product("Bread", 5.99);
+
+        p1.showProduct();
+        p2.showProduct();
     }
 }
