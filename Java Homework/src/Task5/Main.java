@@ -115,5 +115,11 @@ public class Main {
 
         p1.showProduct();
         p2.showProduct();
+
+        System.out.println("\n *** 19 ***");
+        p1.reducePrice(4.00);
+        p2.reducePrice(1.00);
+        p1.reducePrice(5.00, "hair-week sale event");
+        p2.reducePrice(1.50, "upcoming expiration date");
     }
 }
