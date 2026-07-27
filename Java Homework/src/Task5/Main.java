@@ -121,5 +121,15 @@ public class Main {
         p2.reducePrice(1.00);
         p1.reducePrice(5.00, "hair-week sale event");
         p2.reducePrice(1.50, "upcoming expiration date");
+
+        System.out.println("\n *** 20 ***");
+        Product p3 = new Product("laptop", 1249.99);
+        Product p4 = new Product("smartphone", 949.99);
+        Product p5 = new Product("mouse", 49.99);
+        
+        Product[] products = {p3, p4, p5};
+
+        Shop simpleShop = new Shop("Computer - Store", products);
+        simpleShop.showProducts();
     }
 }
