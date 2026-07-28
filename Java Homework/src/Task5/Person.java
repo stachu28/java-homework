@@ -28,11 +28,7 @@ public class Person {
     }
 
     public boolean isAdult() {
-        if (age >= 18) {
-            return true;
-        } else {
-            return false;
-        }
+        return age >= 18;
     }
 
     public int compareAge(Person other) {
