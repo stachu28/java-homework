@@ -4,12 +4,21 @@ public class Main {
     static void main(String[] args) {
         System.out.println("*** 1 ***");
         DayOfWeek today = DayOfWeek.WEDNESDAY;
-
         System.out.println("Today is: " + today);
 
         System.out.println("\n*** 2 ***");
         for (DayOfWeek day : DayOfWeek.values()) {
             System.out.println(day);
         }
+
+        System.out.println("\n*** 3 ***");
+        DayOfWeek day1 = DayOfWeek.MONDAY;
+        DayOfWeek day2 = DayOfWeek.MONDAY;
+        DayOfWeek day3 = DayOfWeek.TUESDAY;
+
+        System.out.println("Is 'day1' same as 'day2': ");
+        System.out.println(day1 == day2);
+        System.out.println("Is 'day1' same as 'day3': ");
+        System.out.println(day1 == day3);
     }
 }
