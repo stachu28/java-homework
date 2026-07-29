@@ -37,6 +37,9 @@ public class Main {
         System.out.println("Is 'day5' a weekend?");
         System.out.println(DayOfWeek.isWeekend(day6));
 
-
+        System.out.println("\n*** 6 ***");
+        for (Month month : Month.values()) {
+            System.out.println(month + " - " + month.getDays() + " days.");
+        }
     }
 }
