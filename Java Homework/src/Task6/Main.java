@@ -46,5 +46,20 @@ public class Main {
         for (Month month : Month.values()) {
             System.out.println(month.toString());
         }
+
+        System.out.println("\n*** 8 ***");
+        System.out.println("Months with Ordinals");
+        for (Month month : Month.values()) {
+            System.out.println("Month: " + month + ", ordinal: " + month.ordinal());
+        }
+        System.out.println("\nCompareTo examples:");
+        Month m1 = Month.JANUARY;
+        Month m2 = Month.AUGUST;
+        Month m3 = Month.OCTOBER;
+
+        System.out.println(m1 + " vs " + m2 + ": " + m1.compareTo(m2));
+        System.out.println(m2 + " vs " + m3 + ": " + m2.compareTo(m3));
+        System.out.println(m3 + " vs " + m1 + ": " + m3.compareTo(m1));
+
     }
 }
