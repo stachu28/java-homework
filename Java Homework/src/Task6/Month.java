@@ -1,6 +1,7 @@
 package Task6;
 
-public enum Month { JANUARY(31), FEBRUARY(28), MARCH(31), APRIL(30), MAY(31), JUNE(30), JULY(31), AUGUST(31),
+public enum Month {
+    JANUARY(31), FEBRUARY(28), MARCH(31), APRIL(30), MAY(31), JUNE(30), JULY(31), AUGUST(31),
     SEPTEMBER(30), OCTOBER(31), NOVEMBER(30), DECEMBER(31);
 
     private int days;
@@ -11,5 +12,10 @@ public enum Month { JANUARY(31), FEBRUARY(28), MARCH(31), APRIL(30), MAY(31), JU
 
     public int getDays() {
         return days;
+    }
+
+    @Override
+    public String toString() {
+        return "'" + name() + "(days: " + days + ")'.";
     }
 }

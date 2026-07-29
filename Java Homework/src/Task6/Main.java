@@ -41,5 +41,10 @@ public class Main {
         for (Month month : Month.values()) {
             System.out.println(month + " - " + month.getDays() + " days.");
         }
+
+        System.out.println("\n*** 7 ***");
+        for (Month month : Month.values()) {
+            System.out.println(month.toString());
+        }
     }
 }
