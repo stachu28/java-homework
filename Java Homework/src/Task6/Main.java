@@ -61,5 +61,12 @@ public class Main {
         System.out.println(m2 + " vs " + m3 + ": " + m2.compareTo(m3));
         System.out.println(m3 + " vs " + m1 + ": " + m3.compareTo(m1));
 
+        System.out.println("\n*** 9 ***");
+        Person artur = new Person("Artur", DayOfWeek.SATURDAY);
+        Person kate = new Person("Kate", DayOfWeek.WEDNESDAY);
+
+        artur.showDayOff();
+        kate.showDayOff();
+
     }
 }
