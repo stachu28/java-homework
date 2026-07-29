@@ -20,5 +20,13 @@ public class Main {
         System.out.println(day1 == day2);
         System.out.println("Is 'day1' same as 'day3': ");
         System.out.println(day1 == day3);
+
+        System.out.println("\n*** 4 ***");
+        DayOfWeek day = DayOfWeek.WEDNESDAY;
+        switch (day) {
+            case MONDAY -> System.out.println("The beginning of the week!");
+            case TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> System.out.println("Mid-week!");
+            case SATURDAY, SUNDAY -> System.out.println("Weekend!");
+        }
     }
 }
