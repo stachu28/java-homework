@@ -1,5 +1,7 @@
 package Task6;
 
+import java.text.Format;
+
 public class Main {
     static void main(String[] args) {
         System.out.println("*** 1 ***");
@@ -75,5 +77,14 @@ public class Main {
         artur.showDayOff();
         kate.showDayOff();
 
+        System.out.println("\n*** 11 ***");
+        Month[] months = {Month.APRIL, Month.JUNE,
+                Month.AUGUST, Month.SEPTEMBER, Month.OCTOBER, Month.DECEMBER};
+        int totalDays = 0;
+        for (Month month : months) {
+            System.out.println(month + " has: " + month.getDays() + " days.");
+            totalDays += month.getDays();
+        }
+        System.out.println("In total they have: " + totalDays + " days.");
     }
 }
