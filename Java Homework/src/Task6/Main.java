@@ -91,5 +91,14 @@ public class Main {
         for (Currency currency : Currency.values()) {
             System.out.println(currency.toString());
         }
+
+        System.out.println("\n*** 13 ***");
+        int a = 14;
+        int b = 4;
+        System.out.println("Calculator of: " + a + ", and: " + b);
+        for (Operation operation : Operation.values()) {
+            double result = operation.calculate(a, b);
+            System.out.println(a + " " + operation + " " + b + " equals " + result);
+        }
     }
 }
