@@ -86,5 +86,10 @@ public class Main {
             totalDays += month.getDays();
         }
         System.out.println("In total they have: " + totalDays + " days.");
+
+        System.out.println("\n*** 12 ***");
+        for (Currency currency : Currency.values()) {
+            System.out.println(currency.toString());
+        }
     }
 }
