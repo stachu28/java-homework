@@ -1,6 +1,7 @@
 package Task6;
 
-import java.text.Format;
+import static Task6.MenuOption.START;
+import static Task6.MenuOption.STOP;
 
 public class Main {
     static void main(String[] args) {
@@ -117,5 +118,23 @@ public class Main {
 
         System.out.println("\n*** 16 ***");
         Logger.INSTANCE.log("test");
+
+        System.out.println("\n*** 17 ***");
+        System.out.println("Choose option: ");
+        for (MenuOption option : MenuOption.values()) {
+            System.out.println("- " + option);
+        }
+        String userInput = "start";
+        try {
+            MenuOption option = MenuOption.valueOf(userInput.toUpperCase());
+
+            switch (option) {
+                case START -> System.out.println("You have launched the program!");
+                case STOP -> System.out.println("You have stopped the program!");
+                case EXIT -> System.out.println("You have exited the program!");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Niepoprawna opcja.");
+        }
     }
 }
