@@ -100,5 +100,13 @@ public class Main {
             double result = operation.calculate(a, b);
             System.out.println(a + " " + operation + " " + b + " equals " + result);
         }
+
+        System.out.println("\n*** 14 ***");
+        OrderStatus status1 = OrderStatus.CANCELED;
+        OrderStatus status2 = OrderStatus.DELIVERED;
+        OrderStatus status3 = OrderStatus.PROCESSING;
+        System.out.println(status1 + " is active: " + status1.isActive());
+        System.out.println(status2 + " is active: " + status2.isActive());
+        System.out.println(status3 + " is active: " + status3.isActive());
     }
 }
