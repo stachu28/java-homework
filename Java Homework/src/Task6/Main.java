@@ -108,5 +108,11 @@ public class Main {
         System.out.println(status1 + " is active: " + status1.isActive());
         System.out.println(status2 + " is active: " + status2.isActive());
         System.out.println(status3 + " is active: " + status3.isActive());
+
+        System.out.println("\n*** 15 ***");
+        for (Planet planet : Planet.values()) {
+            System.out.println("name: " + planet + ", mass(t): " + planet.getMass() + ", radius(m): " + planet.getRadius()
+                    + ", density: " + planet.getDensity() + ".");
+        }
     }
 }
