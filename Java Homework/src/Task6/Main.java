@@ -136,5 +136,15 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.out.println("Niepoprawna opcja.");
         }
+
+        System.out.println("\n*** 18 ***");
+        Product[] products = {
+                new Product("Laptop", Category.ELECTRONICS),
+                new Product("Cheese", Category.FOOD),
+                new Product("Hoodie", Category.CLOTHING),
+        };
+        for (Product product : products) {
+            System.out.println("name: " + product.getName() + ", category: " + product.getCategory());
+        }
     }
 }
