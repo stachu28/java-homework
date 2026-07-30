@@ -62,6 +62,13 @@ public class Main {
         System.out.println(m3 + " vs " + m1 + ": " + m3.compareTo(m1));
 
         System.out.println("\n*** 9 ***");
+        for (Month month : Month.values()) {
+            if (month.isHolidaySeason()) {
+                System.out.println(month + " - miesiąc wakacyjny!");
+            }
+        }
+
+        System.out.println("\n*** 10 ***");
         Person artur = new Person("Artur", DayOfWeek.SATURDAY);
         Person kate = new Person("Kate", DayOfWeek.WEDNESDAY);
 
