@@ -114,5 +114,8 @@ public class Main {
             System.out.println("name: " + planet + ", mass(t): " + planet.getMass() + ", radius(m): " + planet.getRadius()
                     + ", density: " + planet.getDensity() + ".");
         }
+
+        System.out.println("\n*** 16 ***");
+        Logger.INSTANCE.log("test");
     }
 }
