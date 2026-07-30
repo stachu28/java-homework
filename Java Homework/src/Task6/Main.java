@@ -157,5 +157,10 @@ public class Main {
         System.out.println("Multiplying: " + Calculation.MULTIPLY.calculate(c, d));
         System.out.println("Dividing: " + Calculation.DIVIDE.calculate(c, d));
 
+        System.out.println("\n*** 20 ***");
+        Planet planet1 = Planet.EARTH;
+        Planet planet2 = Planet.EARTH;
+        System.out.println("Porównanie przez == -> " + (planet1 == planet2));
+        System.out.println("Porównanie przez equals -> " + planet1.equals(planet2));
     }
 }
