@@ -146,5 +146,16 @@ public class Main {
         for (Product product : products) {
             System.out.println("name: " + product.getName() + ", category: " + product.getCategory());
         }
+
+        System.out.println("\n*** 19 ***");
+        int c = 12;
+        int d = 4;
+        System.out.println("1st number is: " + c);
+        System.out.println("2nd number is: " + d);
+        System.out.println("Adding: " + Calculation.ADD.calculate(c, d));
+        System.out.println("Subtracting: " + Calculation.SUBTRACT.calculate(c, d));
+        System.out.println("Multiplying: " + Calculation.MULTIPLY.calculate(c, d));
+        System.out.println("Dividing: " + Calculation.DIVIDE.calculate(c, d));
+
     }
 }
