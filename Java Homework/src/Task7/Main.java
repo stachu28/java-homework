@@ -59,5 +59,19 @@ public class Main {
             System.out.println(price1 + " equals to " + price2);
         }
         System.out.println();
+
+        System.out.println("\n*** 7 ***");
+        BigDecimal[] itemPrices = {
+                new BigDecimal("19.99"),
+                new BigDecimal("34.50"),
+                new BigDecimal("8.75"),
+                new BigDecimal("45.00"),
+                new BigDecimal("12.30")
+                };
+        BigDecimal total = BigDecimal.ZERO;
+        for (BigDecimal item : itemPrices) {
+            total = total.add(item);
+        }
+        System.out.println("Sum of cart prices: " + total);
     }
 }
