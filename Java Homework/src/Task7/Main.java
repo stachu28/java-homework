@@ -60,7 +60,6 @@ public class Main {
             System.out.println(price1 + " equals to " + price2);
         }
         System.out.println();
-
         System.out.println("\n*** 7 ***");
         BigDecimal[] itemPrices = {
                 new BigDecimal("19.99"),
@@ -79,6 +78,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter number of products: ");
         int numberOfProducts = scanner.nextInt();
+        scanner.nextLine();
         BigDecimal sum = BigDecimal.ZERO;
         for (int i = 0; i < numberOfProducts; i++) {
             System.out.print("Enter price of product " + (i + 1) + ": ");
@@ -91,6 +91,16 @@ public class Main {
                 RoundingMode.HALF_UP
         );
         System.out.println("Average price: " + averagePrice);
+        scanner.nextLine();
+
+        System.out.println("\n*** 9 ***");
+        System.out.print("Type in price in PLN: ");
+        BigDecimal plnPrice = new BigDecimal(scanner.nextLine());
+        System.out.print("Put EUR exchange rate (eg.: 4.30): ");
+        BigDecimal exchangeRate = new BigDecimal(scanner.nextLine());
+        BigDecimal eurPrice = plnPrice.divide(exchangeRate, 2, RoundingMode.HALF_UP);
+        System.out.println("Price in EUR: " + eurPrice);
+        System.out.println();
         scanner.close();
     }
 }
