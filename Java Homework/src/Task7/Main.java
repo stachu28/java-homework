@@ -36,5 +36,14 @@ public class Main {
                 .setScale(2, RoundingMode.HALF_UP);
         System.out.println("Price before discount: " + originalPrice + "\nAmount of Discount in %: " + discountPercent
                 + "\nFinal price: " + finalPrice);
+
+        System.out.println("\n*** 5 ***");
+        BigDecimal netPrice = new BigDecimal("399.00");
+        BigDecimal taxRate = new BigDecimal("0.23");
+        BigDecimal grossPrice = netPrice.multiply(BigDecimal.ONE.add(taxRate))
+                .setScale(2, RoundingMode.HALF_UP);
+        System.out.println("Net price: " + netPrice);
+        System.out.println("Tax rate: " + taxRate);
+        System.out.println("Gross price: " + grossPrice);
     }
 }
