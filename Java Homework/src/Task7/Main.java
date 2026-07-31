@@ -45,5 +45,19 @@ public class Main {
         System.out.println("Net price: " + netPrice);
         System.out.println("Tax rate: " + taxRate);
         System.out.println("Gross price: " + grossPrice);
+
+        System.out.println("\n*** 6 ***");
+        BigDecimal price1 = new BigDecimal("21");
+        BigDecimal price2 = new BigDecimal("25");
+        System.out.println("Price one: " + price1 + "\nPrice two: " + price2);
+        int comparison = price1.compareTo(price2);
+        if (comparison > 0) {
+            System.out.println(price1 + " is greater than " + price2);
+        } else if (comparison < 0) {
+            System.out.println(price1 + " is smaller than " + price2);
+        } else {
+            System.out.println(price1 + " equals to " + price2);
+        }
+        System.out.println();
     }
 }
