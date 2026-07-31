@@ -2,6 +2,7 @@ package Task7;//package Task7;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Scanner;
 
 public class Main {
     static void main(String[] args) {
@@ -73,5 +74,23 @@ public class Main {
             total = total.add(item);
         }
         System.out.println("Sum of cart prices: " + total);
+
+        System.out.println("\n*** 8 ***");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter number of products: ");
+        int numberOfProducts = scanner.nextInt();
+        BigDecimal sum = BigDecimal.ZERO;
+        for (int i = 0; i < numberOfProducts; i++) {
+            System.out.print("Enter price of product " + (i + 1) + ": ");
+            BigDecimal price = scanner.nextBigDecimal();
+            sum = sum.add(price);
+        }
+        BigDecimal averagePrice = sum.divide(
+                BigDecimal.valueOf(numberOfProducts),
+                2,
+                RoundingMode.HALF_UP
+        );
+        System.out.println("Average price: " + averagePrice);
+        scanner.close();
     }
 }
