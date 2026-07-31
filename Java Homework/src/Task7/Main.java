@@ -10,7 +10,7 @@ public class Main {
         BigDecimal bd1 = new BigDecimal("10.50");
         System.out.println("Big Decimal 1 value: " + bd1);
         BigDecimal bd2 = new BigDecimal("2.25");
-        System.out.println("Big Decimal 2 value: " +bd2);
+        System.out.println("Big Decimal 2 value: " + bd2);
         System.out.println("Sum: " + bd1.add(bd2));
         System.out.println("Difference: " + bd1.subtract(bd2));
         System.out.println("Product: " + bd1.multiply(bd2));
@@ -28,5 +28,13 @@ public class Main {
         System.out.println("Unrounded: " + notRounded);
         System.out.println("Rounded: " + rounded);
 
+        System.out.println("\n*** 4 ***");
+        BigDecimal originalPrice = new BigDecimal("200.00");
+        BigDecimal discountPercent = new BigDecimal("25");
+        BigDecimal discountAmount = originalPrice.multiply(discountPercent.divide(new BigDecimal("100")));
+        BigDecimal finalPrice = originalPrice.subtract(discountAmount)
+                .setScale(2, RoundingMode.HALF_UP);
+        System.out.println("Price before discount: " + originalPrice + "\nAmount of Discount in %: " + discountPercent
+                + "\nFinal price: " + finalPrice);
     }
-    }
+}
