@@ -15,5 +15,12 @@ public class Main {
         System.out.println("Difference: " + bd1.subtract(bd2));
         System.out.println("Product: " + bd1.multiply(bd2));
         System.out.println("Quotient: " + bd1.divide(bd2, 2, RoundingMode.HALF_UP));
+
+        System.out.println(("\n*** 2 ***"));
+        BigDecimal valueFromString = new BigDecimal("0.1");
+        double valueFromDouble = 0.1;
+
+        System.out.println("Value from String: " + valueFromString);
+        System.out.println("Value from double: " + valueFromDouble);
+        }
     }
-}
