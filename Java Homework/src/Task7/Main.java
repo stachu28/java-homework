@@ -102,5 +102,13 @@ public class Main {
         System.out.println("Price in EUR: " + eurPrice);
         System.out.println();
         scanner.close();
+
+        System.out.println("\n*** 10 ***");
+        double doubleSum = 0.1 + 0.2;
+        BigDecimal bigDecimalOne = new BigDecimal("0.1");
+        BigDecimal bigDecimalTwo = new BigDecimal("0.2");
+        BigDecimal bigDecimalSum = bigDecimalOne.add(bigDecimalTwo);
+        System.out.println("Sum of double 0.1 + 0.2 = " + doubleSum);
+        System.out.println("Sum of BigDecimal 0.1 + 0.2 = " + bigDecimalSum);
     }
 }
