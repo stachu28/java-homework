@@ -112,11 +112,23 @@ public class Main {
 
         System.out.println("\n*** 11 ***");
         System.out.println("Type in a sentence: ");
-        String sentence = scanner.nextLine();
-        System.out.println("Sentence lenght: " + sentence.length());
-        System.out.println("Sentence in uppercase: " + sentence.toUpperCase());
-        System.out.println("Sentence in lowercase: " + sentence.toLowerCase());
-        String reversed = new StringBuilder(sentence).reverse().toString();
+        String sentence1 = scanner.nextLine();
+        System.out.println("Sentence lenght: " + sentence1.length());
+        System.out.println("Sentence in uppercase: " + sentence1.toUpperCase());
+        System.out.println("Sentence in lowercase: " + sentence1.toLowerCase());
+        String reversed = new StringBuilder(sentence1).reverse().toString();
         System.out.println("Sentence in reverse: " + reversed);
+
+        System.out.println("\n*** 12 ***");
+        System.out.println("Type a sentence: ");
+        String sentence2 = scanner.nextLine();
+        System.out.println("Type a word: ");
+        String word1 = scanner.nextLine();
+        if (sentence2.contains(word1)) {
+            System.out.println("The word appears in the sentence");
+        } else {
+            System.out.println("The word does not appear in the sentence");
+        }
+
     }
 }
