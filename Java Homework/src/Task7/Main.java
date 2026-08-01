@@ -2,6 +2,7 @@ package Task7;//package Task7;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -168,13 +169,23 @@ public class Main {
 //        } else {
 //            System.out.println("The text does not end with '2025");
 //        }
+//
+//        System.out.println("\n*** 17 ***");
+//        System.out.println("Enter product name: ");
+//        String productName = scanner.nextLine();
+//        System.out.println("Enter product price: ");
+//        BigDecimal productPrice = scanner.nextBigDecimal();
+//        System.out.printf("Product: %s, price: %.2f PLN%n", productName, productPrice);
 
-        System.out.println("\n*** 17 ***");
-        System.out.println("Enter product name: ");
-        String productName = scanner.nextLine();
-        System.out.println("Enter product price: ");
-        BigDecimal productPrice = scanner.nextBigDecimal();
-        System.out.printf("Product: %s, price: %.2f PLN%n", productName, productPrice);
+        System.out.println("\n*** 18 ***");
+        List<BigDecimal> prices = List.of(
+                new BigDecimal("12"),
+                new BigDecimal("5.5"),
+                new BigDecimal("99.999")
+        );
 
+        for (BigDecimal price : prices) {
+            System.out.println(price.setScale(2, BigDecimal.ROUND_HALF_UP) + " zł");
+        }
     }
 }
