@@ -130,5 +130,10 @@ public class Main {
             System.out.println("The word does not appear in the sentence");
         }
 
+        System.out.println("\n*** 13 ***");
+        System.out.println("Type in a sentence: ");
+        String sentence3 = scanner.nextLine();
+        String changedSentence = sentence3.replace(" ", "_").replace(",", "");
+        System.out.println("Changed sentence: " + changedSentence);
     }
 }
