@@ -153,20 +153,28 @@ public class Main {
 //        for (String word : words) {
 //            System.out.println(word);
 //        }
+//
+//        System.out.println("*** 16 ***");
+//        System.out.println("Enter text: ");
+//        String sentence5 = scanner.nextLine();
+//        if (sentence5.startsWith("Java")) {
+//            System.out.println("The text starts with 'Java'");
+//        } else {
+//            System.out.println("The text does not start with 'Java'");
+//        }
+//
+//        if (sentence5.endsWith("2025")) {
+//            System.out.println("The text ends with '2025'");
+//        } else {
+//            System.out.println("The text does not end with '2025");
+//        }
 
-        System.out.println("*** 16 ***");
-        System.out.println("Enter text: ");
-        String sentence5 = scanner.nextLine();
-        if (sentence5.startsWith("Java")) {
-            System.out.println("The text starts with 'Java'");
-        } else {
-            System.out.println("The text does not start with 'Java'");
-        }
+        System.out.println("\n*** 17 ***");
+        System.out.println("Enter product name: ");
+        String productName = scanner.nextLine();
+        System.out.println("Enter product price: ");
+        BigDecimal productPrice = scanner.nextBigDecimal();
+        System.out.printf("Product: %s, price: %.2f PLN%n", productName, productPrice);
 
-        if (sentence5.endsWith("2025")) {
-            System.out.println("The text ends with '2025'");
-        } else {
-            System.out.println("The text does not end with '2025");
-        }
     }
 }
