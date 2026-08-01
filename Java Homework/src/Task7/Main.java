@@ -177,15 +177,27 @@ public class Main {
 //        BigDecimal productPrice = scanner.nextBigDecimal();
 //        System.out.printf("Product: %s, price: %.2f PLN%n", productName, productPrice);
 
-        System.out.println("\n*** 18 ***");
-        List<BigDecimal> prices = List.of(
-                new BigDecimal("12"),
-                new BigDecimal("5.5"),
-                new BigDecimal("99.999")
+//        System.out.println("\n*** 18 ***");
+//        List<BigDecimal> prices = List.of(
+//                new BigDecimal("12"),
+//                new BigDecimal("5.5"),
+//                new BigDecimal("99.999")
+//        );
+//        for (BigDecimal price : prices) {
+//            System.out.println(price.setScale(2, BigDecimal.ROUND_HALF_UP) + " zł");
+//        }
+
+        System.out.println("\n*** 19 ***");
+        System.out.println("Enter total amount: ");
+        BigDecimal total = scanner.nextBigDecimal();
+        System.out.println("Enter number of participants: ");
+        int people = scanner.nextInt();
+        BigDecimal each = total.divide(
+                BigDecimal.valueOf(people),
+                2,
+                RoundingMode.HALF_UP
         );
 
-        for (BigDecimal price : prices) {
-            System.out.println(price.setScale(2, BigDecimal.ROUND_HALF_UP) + " zł");
-        }
+        System.out.println("Each pays: " + each);
     }
 }
