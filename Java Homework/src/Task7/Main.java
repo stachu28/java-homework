@@ -187,17 +187,22 @@ public class Main {
 //            System.out.println(price.setScale(2, BigDecimal.ROUND_HALF_UP) + " zł");
 //        }
 
-        System.out.println("\n*** 19 ***");
-        System.out.println("Enter total amount: ");
-        BigDecimal total = scanner.nextBigDecimal();
-        System.out.println("Enter number of participants: ");
-        int people = scanner.nextInt();
-        BigDecimal each = total.divide(
-                BigDecimal.valueOf(people),
-                2,
-                RoundingMode.HALF_UP
-        );
+//        System.out.println("\n*** 19 ***");
+//        System.out.println("Enter total amount: ");
+//        BigDecimal total = scanner.nextBigDecimal();
+//        System.out.println("Enter number of participants: ");
+//        int people = scanner.nextInt();
+//        BigDecimal each = total.divide(
+//                BigDecimal.valueOf(people),
+//                2,
+//                RoundingMode.HALF_UP
+//        );
+//        System.out.println("Each pays: " + each);
 
-        System.out.println("Each pays: " + each);
+        System.out.println("\n*** 20 ***");
+        System.out.println("Enter a price: ");
+        BigDecimal price = scanner.nextBigDecimal();
+        BigDecimal rounded = price.setScale(2, RoundingMode.CEILING);
+        System.out.println(rounded + " zł");
     }
 }
