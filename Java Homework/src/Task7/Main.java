@@ -145,13 +145,28 @@ public class Main {
 //        boolean equals = string1.equals(string2);
 //        boolean equalsIgnoreCase = string1.equalsIgnoreCase(string2);
 //        System.out.println("Equality using `equals()` -> " + equals + "\n`equalsIgnoreCase()`. -> " + equalsIgnoreCase);
+//
+//        System.out.println("*** 15 ***");
+//        System.out.println("Enter a sentence: ");
+//        String sentence4 = scanner.nextLine();
+//        String[] words = sentence4.split(" ");
+//        for (String word : words) {
+//            System.out.println(word);
+//        }
 
-        System.out.println("*** 15 ***");
-        System.out.println("Enter a sentence: ");
-        String sentence4 = scanner.nextLine();
-        String[] words = sentence4.split(" ");
-        for (String word : words) {
-            System.out.println(word);
+        System.out.println("*** 16 ***");
+        System.out.println("Enter text: ");
+        String sentence5 = scanner.nextLine();
+        if (sentence5.startsWith("Java")) {
+            System.out.println("The text starts with 'Java'");
+        } else {
+            System.out.println("The text does not start with 'Java'");
+        }
+
+        if (sentence5.endsWith("2025")) {
+            System.out.println("The text ends with '2025'");
+        } else {
+            System.out.println("The text does not end with '2025");
         }
     }
 }
