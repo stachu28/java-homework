@@ -101,7 +101,6 @@ public class Main {
         BigDecimal eurPrice = plnPrice.divide(exchangeRate, 2, RoundingMode.HALF_UP);
         System.out.println("Price in EUR: " + eurPrice);
         System.out.println();
-        scanner.close();
 
         System.out.println("\n*** 10 ***");
         double doubleSum = 0.1 + 0.2;
@@ -110,5 +109,14 @@ public class Main {
         BigDecimal bigDecimalSum = bigDecimalOne.add(bigDecimalTwo);
         System.out.println("Sum of double 0.1 + 0.2 = " + doubleSum);
         System.out.println("Sum of BigDecimal 0.1 + 0.2 = " + bigDecimalSum);
+
+        System.out.println("\n*** 11 ***");
+        System.out.println("Type in a sentence: ");
+        String sentence = scanner.nextLine();
+        System.out.println("Sentence lenght: " + sentence.length());
+        System.out.println("Sentence in uppercase: " + sentence.toUpperCase());
+        System.out.println("Sentence in lowercase: " + sentence.toLowerCase());
+        String reversed = new StringBuilder(sentence).reverse().toString();
+        System.out.println("Sentence in reverse: " + reversed);
     }
 }
