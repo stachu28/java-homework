@@ -136,14 +136,22 @@ public class Main {
 //        String sentence3 = scanner.nextLine();
 //        String changedSentence = sentence3.replace(" ", "_").replace(",", "");
 //        System.out.println("Changed sentence: " + changedSentence);
+//
+//        System.out.println("\n*** 14 ***");
+//        System.out.println("Type in String no.1: ");
+//        String string1 = scanner.nextLine();
+//        System.out.println("Type in String no.2: ");
+//        String string2 = scanner.nextLine();
+//        boolean equals = string1.equals(string2);
+//        boolean equalsIgnoreCase = string1.equalsIgnoreCase(string2);
+//        System.out.println("Equality using `equals()` -> " + equals + "\n`equalsIgnoreCase()`. -> " + equalsIgnoreCase);
 
-        System.out.println("\n*** 14 ***");
-        System.out.println("Type in String no.1: ");
-        String string1 = scanner.nextLine();
-        System.out.println("Type in String no.2: ");
-        String string2 = scanner.nextLine();
-        boolean equals = string1.equals(string2);
-        boolean equalsIgnoreCase = string1.equalsIgnoreCase(string2);
-        System.out.println("Equality using `equals()` -> " + equals + "\n`equalsIgnoreCase()`. -> " + equalsIgnoreCase);
+        System.out.println("*** 15 ***");
+        System.out.println("Enter a sentence: ");
+        String sentence4 = scanner.nextLine();
+        String[] words = sentence4.split(" ");
+        for (String word : words) {
+            System.out.println(word);
+        }
     }
 }
