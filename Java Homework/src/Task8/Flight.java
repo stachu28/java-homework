@@ -12,6 +12,10 @@ public class Flight {
 
     public Flight(String flightNumber, String departureAirport, String arrivalAirport, ZonedDateTime departureTime,
                   ZonedDateTime arrivalTime) {
+        if (arrivalTime.toInstant().isBefore(departureTime.toInstant())
+                || arrivalTime.toInstant().equals(departureTime.toInstant())) {
+            throw new IllegalArgumentException("Arrival must be after departure");
+        }
         this.flightNumber = flightNumber;
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
