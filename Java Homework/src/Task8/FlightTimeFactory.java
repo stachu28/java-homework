@@ -25,8 +25,8 @@ public class FlightTimeFactory {
 
         if (transition != null && transition.isGap()) {
             throw new InvalidFlightTimeException(
-                    "Podana godzina lokalna " + localTime + " nie istnieje w strefie "
-                            + zoneName + " z powodu zmiany na czas letni (spring-forward)."
+                    "Given local hour " + localTime + " does not exist in time zone "
+                            + zoneName + " due to spring-forward change."
             );
         }
 
@@ -36,8 +36,8 @@ public class FlightTimeFactory {
     public static void validateOrder(ZonedDateTime departure, ZonedDateTime arrival) {
         if (!arrival.toInstant().isAfter(departure.toInstant())) {
             throw new InvalidFlightTimeException(
-                    "Czas przylotu (" + arrival + ") musi być po czasie wylotu ("
-                            + departure + ") w ujęciu Instant."
+                    "Time of Arrival (" + arrival + ") must be after departure ("
+                            + departure + ") in Instant."
             );
         }
     }
@@ -45,7 +45,7 @@ public class FlightTimeFactory {
     public static ZoneId zoneForAirport(String iataCode) {
         String zoneName = IATA_TO_ZONE.get(iataCode);
         if (zoneName == null) {
-            throw new IllegalArgumentException("Nieznany kod IATA: " + iataCode);
+            throw new IllegalArgumentException("Unknown IATA: " + iataCode);
         }
         return ZoneId.of(zoneName);
     }
