@@ -1,5 +1,6 @@
 package Task8;
 
+import java.time.Duration;
 import java.time.ZonedDateTime;
 
 public class Flight {
@@ -19,5 +20,9 @@ public class Flight {
         this.arrivalAirport = arrivalAirport;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
+    }
+
+    public Duration calculateFlightDuration() {
+        return Duration.between(departureTime.toInstant(), arrivalTime.toInstant());
     }
 }
