@@ -16,6 +16,18 @@ public class Main {
         Task5();
         Task6();
         Task7();
+        Task8();
+        Task9();
+        System.out.println("\n*** 10 ***");
+        ZonedDateTime departure = ZonedDateTime.of(2025, 1, 15, 6, 0, 0, 0, ZoneId.of("Europe/Warsaw"));
+        ZonedDateTime arrival = ZonedDateTime.of(2025, 1, 15, 19, 0, 0, 0, ZoneId.of("Asia/Kolkata"));
+
+        Flight flight = new Flight("LO110", "WAW", "WAW", departure, arrival);
+        Duration duration = flight.calculateFlightDuration();
+        System.out.println(
+                duration.toHours() + "h " +
+                        (duration.toMinutes() % 60) + "m");
+    }
 
     private static void Task9() {
         System.out.println("\n*** 9 ***");
