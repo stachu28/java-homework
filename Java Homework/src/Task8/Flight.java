@@ -1,5 +1,6 @@
 package Task8;
 
+import java.time.DateTimeException;
 import java.time.Duration;
 import java.time.ZonedDateTime;
 
@@ -26,4 +27,6 @@ public class Flight {
     public Duration calculateFlightDuration() {
         return Duration.between(departureTime.toInstant(), arrivalTime.toInstant());
     }
+
+
 }

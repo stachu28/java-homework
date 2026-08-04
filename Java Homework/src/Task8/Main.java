@@ -16,6 +16,19 @@ public class Main {
         Task5();
         Task6();
         Task7();
+
+        System.out.println("\n*** 8 ***");
+        ZonedDateTime departure = ZonedDateTime.of(2025, 1, 15, 10, 0, 0, 0, ZoneId.of("Europe/Warsaw"));
+        ZonedDateTime arrival = ZonedDateTime.of(2025, 1, 15, 8, 0, 0, 0, ZoneId.of("Europe/Warsaw"));
+
+        try {
+            Flight flight = new Flight("LO106", "WAW", "WAW", departure, arrival);
+            Duration duration = flight.calculateFlightDuration();
+            System.out.println(
+                    duration.toHours() + "h " +
+                            (duration.toMinutes() % 60) + "m");
+        } catch (IllegalArgumentException e) {
+        } System.out.println("Arrival must be after departure!");
     }
 
     private static void Task7() {
