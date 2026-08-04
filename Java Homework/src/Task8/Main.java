@@ -18,9 +18,35 @@ public class Main {
         Task7();
         Task8();
         Task9();
+        Task10();
+        System.out.println("\n*** 11 ***");
+        {
+            ZonedDateTime departure = ZonedDateTime.of(2025, 1, 15, 8, 0, 0, 0, ZoneId.of("Europe/Warsaw"));
+            ZonedDateTime arrival = ZonedDateTime.of(2025, 1, 15, 12, 0, 0, 0, ZoneId.of("Europe/London"));
+
+            Flight flight = new Flight("LO111", "WAW", "LND", departure, arrival);
+            Duration duration = flight.calculateFlightDuration();
+            System.out.println(
+                    duration.toHours() + "h " +
+                            (duration.toMinutes() % 60) + "m");
+        }
+        {
+
+            ZonedDateTime departure = ZonedDateTime.of(2025, 1, 15, 16, 0, 0, 0, ZoneId.of("Europe/London"));
+            ZonedDateTime arrival = ZonedDateTime.of(2025, 1, 15, 20, 0, 0, 0, ZoneId.of("Europe/Warsaw"));
+
+            Flight flight = new Flight("LO111", "WAW", "LND", departure, arrival);
+            Duration duration = flight.calculateFlightDuration();
+            System.out.println(
+                    duration.toHours() + "h " +
+                            (duration.toMinutes() % 60) + "m");
+        }
+    }
+
+    private static void Task10() {
         System.out.println("\n*** 10 ***");
         ZonedDateTime departure = ZonedDateTime.of(2025, 1, 15, 6, 0, 0, 0, ZoneId.of("Europe/Warsaw"));
-        ZonedDateTime arrival = ZonedDateTime.of(2025, 1, 15, 19, 0, 0, 0, ZoneId.of("Asia/Kolkata"));
+        ZonedDateTime arrival = ZonedDateTime.of(2025, 1, 16, 6, 0, 0, 0, ZoneId.of("Asia/Singapore"));
 
         Flight flight = new Flight("LO110", "WAW", "WAW", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
@@ -70,7 +96,7 @@ public class Main {
             return;
         }
 
-        Flight flight = new Flight("LO107", "WAW", "WAW", departure, arrival);
+        Flight flight = new Flight("LO107", "INV", "WAW", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
         System.out.println(
                 duration.toHours() + "h " +
@@ -79,8 +105,8 @@ public class Main {
 
     private static void Task6() {
         System.out.println("\n*** 6 ***");
-        ZonedDateTime departure = ZonedDateTime.of(2025, 1, 15, 10, 0, 0, 0, ZoneId.of("Europe/Warsaw"));
-        ZonedDateTime arrival = ZonedDateTime.of(2025, 10, 26, 2, 30, 0, 0, ZoneId.of("Europe/Warsaw"));
+        ZonedDateTime departure = ZonedDateTime.of(2025, 1, 15, 10, 0, 0, 0, ZoneId.of("Asia/Tokyo"));
+        ZonedDateTime arrival = ZonedDateTime.of(2025, 10, 26, 2, 30, 0, 0, ZoneId.of("America/Los_Angeles"));
 
         Flight flight = new Flight("LO106", "WAW", "WAW", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
@@ -118,7 +144,7 @@ public class Main {
         ZonedDateTime departure = ZonedDateTime.of(2025, 1, 15, 10, 0, 0, 0, ZoneId.of("Europe/Warsaw"));
         ZonedDateTime arrival = ZonedDateTime.of(2025, 1, 15, 14, 0, 0, 0, ZoneId.of("America/New_York"));
 
-        Flight flight = new Flight("LO103", "WAW", "WAW", departure, arrival);
+        Flight flight = new Flight("LO103", "WAW", "NYC", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
         System.out.println(
                 duration.toHours() + "h " +
