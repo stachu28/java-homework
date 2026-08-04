@@ -10,6 +10,23 @@ public class Main {
     static void main(String[] args) {
         Task1();
         Task2();
+        Task3();
+        Task4();
+    }
+
+    private static void Task4() {
+        System.out.println("\n*** 4 ***");
+        ZonedDateTime departure = ZonedDateTime.of(2025, 03, 30, 01, 00, 00, 00, ZoneId.of("Europe/Warsaw"));
+        ZonedDateTime arrival = ZonedDateTime.of(2025, 03, 30, 05, 00, 00, 00, ZoneId.of("Europe/Warsaw"));
+
+        Flight flight = new Flight("LO104", "WAW", "WAW", departure, arrival);
+        Duration duration = flight.calculateFlightDuration();
+        System.out.println(
+                duration.toHours() + "h " +
+                        (duration.toMinutes() % 60) + "m");
+    }
+
+    private static void Task3() {
         System.out.println("\n*** 3 ***");
         ZonedDateTime departure = ZonedDateTime.of(2025, 01, 15, 10, 00, 00, 00, ZoneId.of("Europe/Warsaw"));
         ZonedDateTime arrival = ZonedDateTime.of(2025, 01, 15, 14, 00, 00, 00, ZoneId.of("America/New_York"));
