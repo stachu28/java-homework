@@ -12,6 +12,15 @@ public class Main {
         Task2();
         Task3();
         Task4();
+        System.out.println("\n*** 5 ***");
+        ZonedDateTime departure = ZonedDateTime.of(2025, 10, 26, 01, 00, 00, 00, ZoneId.of("Europe/Warsaw"));
+        ZonedDateTime arrival = ZonedDateTime.of(2025, 10, 26, 02, 30, 00, 00, ZoneId.of("Europe/Warsaw"));
+
+        Flight flight = new Flight("LO105", "WAW", "WAW", departure, arrival);
+        Duration duration = flight.calculateFlightDuration();
+        System.out.println(
+                duration.toHours() + "h " +
+                        (duration.toMinutes() % 60) + "m");
     }
 
     private static void Task4() {
