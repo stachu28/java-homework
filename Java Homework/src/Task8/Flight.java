@@ -5,11 +5,11 @@ import java.time.Duration;
 import java.time.ZonedDateTime;
 
 public class Flight {
-    String flightNumber;
-    String departureAirport;
-    String arrivalAirport;
-    ZonedDateTime departureTime;
-    ZonedDateTime arrivalTime;
+    private String flightNumber;
+    private String departureAirport;
+    private String arrivalAirport;
+    private ZonedDateTime departureTime;
+    private ZonedDateTime arrivalTime;
 
     public Flight(String flightNumber, String departureAirport, String arrivalAirport, ZonedDateTime departureTime,
                   ZonedDateTime arrivalTime) {
@@ -28,5 +28,43 @@ public class Flight {
         return Duration.between(departureTime.toInstant(), arrivalTime.toInstant());
     }
 
+    public String getFlightNumber() {
+        return flightNumber;
+    }
 
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
+    }
+
+    public String getDepartureAirport() {
+        return departureAirport;
+    }
+
+    public void setDepartureAirport(String departureAirport) {
+        this.departureAirport = departureAirport;
+    }
+
+    public String getArrivalAirport() {
+        return arrivalAirport;
+    }
+
+    public void setArrivalAirport(String arrivalAirport) {
+        this.arrivalAirport = arrivalAirport;
+    }
+
+    public ZonedDateTime getDepartureTime() {
+        return departureTime;
+    }
+
+    public void setDepartureTime(ZonedDateTime departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public ZonedDateTime getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(ZonedDateTime arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
 }
