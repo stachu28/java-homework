@@ -46,20 +46,16 @@ public class Main {
 
             Flight flight = new Flight("LO111", "WAW", "LND", departure, arrival);
             Duration duration = flight.calculateFlightDuration();
-            System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " +
-                    flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) +
-                    "m");
+            System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) + "m");
         }
         {
-
             ZonedDateTime departure = ZonedDateTime.of(2025, 1, 15, 16, 0, 0, 0, ZoneId.of("Europe/London"));
             ZonedDateTime arrival = ZonedDateTime.of(2025, 1, 15, 20, 0, 0, 0, ZoneId.of("Europe/Warsaw"));
 
             Flight flight = new Flight("LO111", "LND", "WAW", departure, arrival);
             Duration duration = flight.calculateFlightDuration();
-            System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " +
-                    flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) +
-                    "m");        }
+            System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) + "m");
+        }
     }
 
     private static void Task10() {
@@ -69,9 +65,8 @@ public class Main {
 
         Flight flight = new Flight("LO110", "WAW", "SIG", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
-        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " +
-                flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) +
-                "m");    }
+        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) + "m");
+    }
 
     private static void Task9() {
         System.out.println("\n*** 9 ***");
@@ -80,9 +75,8 @@ public class Main {
 
         Flight flight = new Flight("LO109", "WAW", "KOL", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
-        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " +
-                flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) +
-                "m");    }
+        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) + "m");
+    }
 
     private static void Task8() {
         System.out.println("\n*** 8 ***");
@@ -113,9 +107,8 @@ public class Main {
 
         Flight flight = new Flight("LO107", "INV", "WAW", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
-        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " +
-                flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) +
-                "m");    }
+        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) + "m");
+    }
 
     private static void Task6() {
         System.out.println("\n*** 6 ***");
@@ -124,9 +117,8 @@ public class Main {
 
         Flight flight = new Flight("LO106", "HND", "LAX", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
-        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " +
-                flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) +
-                "m");    }
+        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) + "m");
+    }
 
     private static void Task5() {
         System.out.println("\n*** 5 ***");
@@ -135,9 +127,8 @@ public class Main {
 
         Flight flight = new Flight("LO105", "WAW", "WAW", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
-        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " +
-                flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) +
-                "m");    }
+        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) + "m");
+    }
 
     private static void Task4() {
         System.out.println("\n*** 4 ***");
@@ -146,9 +137,8 @@ public class Main {
 
         Flight flight = new Flight("LO104", "WAW", "WAW", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
-        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " +
-                flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) +
-                "m");    }
+        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) + "m");
+    }
 
     private static void Task3() {
         System.out.println("\n*** 3 ***");
@@ -157,9 +147,8 @@ public class Main {
 
         Flight flight = new Flight("LO103", "WAW", "NYC", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
-        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " +
-                flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) +
-                "m");    }
+        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) + "m");
+    }
 
     private static void Task2() {
         System.out.println("\n*** 1 ***");
@@ -168,9 +157,8 @@ public class Main {
 
         Flight flight = new Flight("LO102", "WAW", "WAW", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
-        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " +
-                flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) +
-                "m");    }
+        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) + "m");
+    }
 
     private static void Task1() {
         System.out.println("\n*** 1 ***");
@@ -179,7 +167,6 @@ public class Main {
 
         Flight flight = new Flight("LO101", "WAW", "WAW", departure, arrival);
         Duration duration = flight.calculateFlightDuration();
-        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " +
-                flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) +
-                "m");    }
+        System.out.println("Flight " + flight.getFlightNumber() + " " + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + " took: \n" + duration.toHours() + "h " + (duration.toMinutes() % 60) + "m");
+    }
 }
