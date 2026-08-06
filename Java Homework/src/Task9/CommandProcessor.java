@@ -11,10 +11,9 @@ public class CommandProcessor {
         }
     }
 
-    static void demo() {
+    static void demo(String cmd) {
         try {
-            processCommand("ARG");
-            processCommand("STATE");
+            processCommand(cmd);
         } catch (IllegalArgumentException | IllegalStateException e) {
             System.out.println(e.getMessage());
         }

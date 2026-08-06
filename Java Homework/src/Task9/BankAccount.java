@@ -11,7 +11,7 @@ final class BankAccount {
         if (amount > balance) {
             throw new InsufficientFundsException("Not enough funds! Balance: " + balance);
         }
-        balance += amount;
+        balance -= amount;
     }
 
     public int getBalance() {

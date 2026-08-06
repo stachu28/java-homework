@@ -1,7 +1,8 @@
 package Task9;
 
 public final class PasswordValidator {
-    private PasswordValidator() {}
+    private PasswordValidator() {
+    }
 
     public static void validate(String pwd) {
         if (pwd == null || pwd.length() < 8) {
