@@ -75,6 +75,7 @@ final class BankAccount {
 ---
 
 ## Zadanie 4: Multi‑catch i decyzja o reakcji
+**Cel:** Umiejętność łączenia pokrewnych wyjątków.
 
 **Cel:** Umiejętność łączenia pokrewnych wyjątków.
 
