@@ -1,6 +1,8 @@
 # System rezerwacji lotów (Java) — praca domowa
 
-Napisz program w Javie, który symuluje podstawy systemu rezerwacji lotów między **różnymi strefami czasowymi**. Celem zadania jest poprawne zrozumienie i wykorzystanie API `java.time` (strefy IANA, zmiany czasu, linia zmiany daty) oraz walidacji czasu lotu.
+Napisz program w Javie, który symuluje podstawy systemu rezerwacji lotów między **różnymi strefami czasowymi**.
+Celem zadania jest poprawne zrozumienie i wykorzystanie API `java.time` (strefy IANA, zmiany czasu, linia zmiany daty)
+oraz walidacji czasu lotu.
 
 ---
 
@@ -26,14 +28,14 @@ Napisz program w Javie, który symuluje podstawy systemu rezerwacji lotów międ
     (lub własny `InvalidFlightTimeException`).
     * Przy tworzeniu stref (`ZoneId.of(...)`) dla niepoprawnej nazwy rzuć błąd – oczekiwany jest `DateTimeException`
     (często specyficznie `ZoneRulesException`).
-    * Zwróć uwagę na **nieistniejące** lub **dwuznaczne** lokalne czasy w dniach zmiany czasu (DST). Domyślnie przyjmij,
-    że:
+    * Zwróć uwagę na **nieistniejące** lub **dwuznaczne** lokalne czasy w dniach zmiany czasu (DST). Domyślnie przyjmij, że:
+
         * w czasie cofania ("fall‑back") wybierany jest **wcześniejszy** offset,
         * w czasie przejścia na letni ("spring‑forward") lokalne czasy z nieistniejącej godziny są **niedozwolone** i
         powinny prowadzić do wyjątku lub jawnej korekty — wybierz jedną politykę i opisz ją w kodzie/testach.
 
-4. (Opcjonalnie) Dodaj prostą mapę IATA→`ZoneId` (np. `WAW -> Europe/Warsaw`, `JFK -> America/New_York`) oraz fabrykę do
-budowy `ZonedDateTime` z `LocalDateTime` + `ZoneId`.
+4. (Opcjonalnie) Dodaj prostą mapę IATA→`ZoneId` (np. `WAW -> Europe/Warsaw`, `JFK -> America/New_York`) oraz fabrykę
+do budowy `ZonedDateTime` z `LocalDateTime` + `ZoneId`.
 
 ---
 
