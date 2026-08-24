@@ -1,0 +1,38 @@
+package Task5;
+
+public class Person {
+    String name;
+    int age;
+    static int numberOfPeople = 0;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+        numberOfPeople++;
+    }
+
+    public Person(String name) {
+        this(name, 0);
+    }
+
+    public Person() {
+        this("Unknown");
+    }
+
+    public void introduceYourself() {
+        System.out.printf("My name is %s, and I am %d!\n", name, age);
+    }
+
+    public void introduceYourself(String greetings) {
+        System.out.printf("%s! My name is %s, and I am %d!\n", greetings, name, age);
+    }
+
+    public boolean isAdult() {
+        return age >= 18;
+    }
+
+    public int compareAge(Person other) {
+        return this.age - other.age;
+    }
+}
+
