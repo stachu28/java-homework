@@ -223,5 +223,10 @@ public class NestedTwoKeyHashMap<K1, K2, V> implements TwoKeyMap<K1, K2, V> {
         public int hashCode() {
             return Objects.hash(key1, key2, value);
         }
+
+        @Override
+        public String toString() {
+            return "(" + key1 + ", " + key2 + ", " + value + ")";
+        }
     }
 }
