@@ -1,0 +1,439 @@
+===== ./src/Task13/FactorialPool.java =====
+package Task13;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadLocalRandom;
+
+public class FactorialPool {
+
+    private static final int POOL_SIZE = 4;
+    private static final int MAX_N = 20;
+
+    static BigInteger factorial(int n) {
+        int delay = ThreadLocalRandom.current().nextInt(100, 501);
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        BigInteger result = BigInteger.ONE;
+        for (int i = 2; i <= n; i++) {
+            result = result.multiply(BigInteger.valueOf(i));
+        }
+        return result;
+    }
+
+    public static void main(String[] args) throws Exception {
+        ExecutorService pool = Executors.newFixedThreadPool(POOL_SIZE);
+        List<Future<BigInteger>> futures = new ArrayList<>();
+
+        long start = System.nanoTime();
+
+        for (int n = 1; n <= MAX_N; n++) {
+            final int nn = n;
+            futures.add(pool.submit(() -> factorial(nn)));
+        }
+
+        for (int i = 0; i < futures.size(); i++) {
+            BigInteger result = futures.get(i).get();
+            System.out.println((i + 1) + ": " + result);
+        }
+        long elapsedMs = (System.nanoTime() - start) / 1_000_000;
+        System.out.println("Time: " + (elapsedMs / 1000.0) + " s");
+
+        pool.shutdown();
+    }
+}===== ./src/Task13/CounterTask.java =====
+package Task13;
+
+public class CounterTask implements Runnable {
+
+    private final int number;
+
+    public CounterTask(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Thread " + number);
+        try {
+            for (int i = 1; i <= 10; i++) {
+                System.out.println("Thread " + number + ": " + i);
+                Thread.sleep(100);
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        System.out.println("Thread " + number + " end");
+    }
+    public static void main(String[] args) throws InterruptedException {
+        final int N = 5;
+        Thread[] threads = new Thread[N];
+
+        for (int i = 0; i < N; i++) {
+            threads[i] = new Thread(new CounterTask(i + 1), "thread-" + (i + 1));
+        }
+
+        for (Thread t : threads) t.start();
+        for (Thread t : threads) t.join();
+    }
+}===== ./src/Task13/Bank/BankAccountAtomic.java =====
+package Task13.Bank;
+
+import java.util.concurrent.atomic.AtomicReference;
+
+public class BankAccountAtomic {
+
+    private record Snapshot(long balanceGr, long version) {
+    }
+
+    private final AtomicReference<Snapshot> state;
+
+    public BankAccountAtomic(long initialPln) {
+        this.state = new AtomicReference<>(new Snapshot(initialPln * 100, 0));
+    }
+
+    public void deposit(long amountGr) {
+        if (amountGr <= 0) throw new IllegalArgumentException("The amount must be greater than 0!");
+        state.updateAndGet(snapshot -> new Snapshot(snapshot.balanceGr + amountGr, snapshot.version + 1));
+    }
+
+    public boolean tryWithdraw(long amountGr) {
+        if (amountGr <= 0) throw new IllegalArgumentException("The amount must be greater than 0!");
+        while (true) {
+            Snapshot current = state.get();
+            if (current.balanceGr() < amountGr) {
+                return false;
+            }
+            Snapshot next = new Snapshot(current.balanceGr() - amountGr, current.version() + 1);
+            if (state.compareAndSet(current, next)) {
+                return true;
+            }
+        }
+    }
+
+    public long balanceGr() {
+        return state.get().balanceGr();
+    }
+}===== ./src/Task13/Bank/InsufficientFundsException.java =====
+package Task13.Bank;
+
+public class InsufficientFundsException extends RuntimeException {
+    public InsufficientFundsException(Long accountId, long balanceGr, long requestedGr) {
+        super("Account: " + accountId + " exceeded its balance\n" +
+                "Balance: " + balanceGr + ", requested: " + requestedGr);
+    }
+}===== ./src/Task13/Bank/BankAccount.java =====
+package Task13.Bank;
+
+public class BankAccount {
+
+    private final Long id;
+    private long balanceGr;                 // saldo w GROSZACH
+
+    public BankAccount(Long id, long initialPln) {
+        this.id = id;
+        this.balanceGr = initialPln * 100;
+    }
+
+    public synchronized void deposit(long amountGr) {
+        if (amountGr <= 0) {
+            throw new IllegalArgumentException("The amount must be greater than 0");
+        }
+        balanceGr += amountGr;
+    }
+
+    public synchronized void withdraw(long amountGr) {
+        if (amountGr <= 0) {
+            throw new IllegalArgumentException("The amount must be greater than 0");
+        }
+        if (amountGr > balanceGr) {
+            throw new InsufficientFundsException(id, balanceGr, amountGr);
+        }
+        balanceGr -= amountGr;
+    }
+
+    public synchronized long getBalanceGr() {
+        return balanceGr;
+    }
+
+    public Long getId() {
+        return id;                          // pole final – synchronizacja niepotrzebna
+    }
+}===== ./src/Task13/Bank/BankAccountLock.java =====
+package Task13.Bank;
+
+import java.util.concurrent.locks.ReentrantLock;
+
+public class BankAccountLock {
+
+    private final Long id;
+    private final ReentrantLock lock = new ReentrantLock();
+    private long balanceGr;
+
+    public BankAccountLock(Long id, long initialPln) {
+        this.id = id;
+        this.balanceGr = initialPln * 100;
+    }
+
+    void depositUnlocked(long amountGr) {
+        if (amountGr <= 0) throw new IllegalArgumentException("The amount must be greater than 0!");
+        balanceGr += amountGr;
+    }
+
+    void withdrawUnlocked(long amountGr) {
+        if (amountGr <= 0) throw new IllegalArgumentException("The amount must be greater than 0!");
+        if (amountGr > balanceGr) {
+            throw new InsufficientFundsException(id, balanceGr, amountGr);
+        }
+        balanceGr -= amountGr;
+    }
+
+    ReentrantLock lock() {
+        return lock;
+    }
+
+    long balanceGr() {
+        return balanceGr;
+    }
+}===== ./src/Task13/Bank/Main.java =====
+package Task13.Bank;
+
+import java.util.Random;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Main {
+    private static final int ACCOUNTS = 10;
+    private static final int TRANSFERS = 1000;
+    private static final int POOL_SIZE = 8;
+    private static final long INITIAL_PLN = 1000;
+    private static final long EXPECTED_TOTAL_GR = ACCOUNTS * INITIAL_PLN * 100L;
+
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+        for (long i = 1; i <= ACCOUNTS; i++) {
+            bank.openAccount(i, INITIAL_PLN);
+        }
+
+        Random rnd = new Random(42);
+        ExecutorService pool = Executors.newFixedThreadPool(POOL_SIZE);
+        AtomicInteger failed = new AtomicInteger();
+        CompletableFuture<?>[] all = new CompletableFuture[TRANSFERS];
+
+        for (int i = 0; i < TRANSFERS; i++) {
+            final long from = 1 + rnd.nextInt(ACCOUNTS);
+            long to = 1 + rnd.nextInt(ACCOUNTS);
+            while (to == from) to = 1 + rnd.nextInt(ACCOUNTS);
+            final long toF = to;
+            final long amount = (100 + rnd.nextInt(401)) * 100L;
+
+            all[i] = CompletableFuture.runAsync(() -> {
+                try {
+                    bank.transfer(from, toF, amount);
+                } catch (InsufficientFundsException e) {
+                    failed.incrementAndGet();
+                }
+            }, pool);
+        }
+
+        CompletableFuture.allOf(all).join();
+        pool.shutdown();
+
+        for (long id = 1; id <= ACCOUNTS; id++) {
+            System.out.println("Konto " + id + ": " + bank.getBalance(id) / 100 + " PLN");
+        }
+        long total = bank.totalBalanceGr();
+        System.out.println("Total: " + total + " gr");
+        System.out.println("Failed transfers: " + failed.get());
+
+        if (total != EXPECTED_TOTAL_GR) {
+            throw new AssertionError("Assertion Error! Race condition occurs somewhere!");
+        }
+        System.out.println("OK");
+    }
+}===== ./src/Task13/Bank/Bank.java =====
+package Task13.Bank;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Bank {
+    private final Map<Long, BankAccount> accounts = new HashMap<>();
+//    HashMap bo konta tworzone sa tylko raz, przed startem symulacji a potem są jedynie odczytywane
+//    dlatego nie zachodzi potrzeba synchronizacji
+
+    public void openAccount(long id, long initialPln) {
+        accounts.put(id, new BankAccount(id, initialPln));
+    }
+
+    public void transfer(long fromId, long toId, long amountGr) {
+        if (fromId == toId) return;
+        if (amountGr <= 0) {
+            throw new IllegalArgumentException("Transfer amount cannot equal 0 or be negative");
+        }
+
+        BankAccount from = accounts.get(fromId);
+        BankAccount to = accounts.get(toId);
+
+        BankAccount first = fromId < toId ? from : to;
+        BankAccount second = fromId < toId ? to : from;
+
+        synchronized (first) {
+            synchronized (second) {
+                from.withdraw(amountGr);
+                to.deposit(amountGr);
+            }
+        }
+    }
+
+    public long totalBalanceGr() {
+        long sum = 0;
+        for (BankAccount a : accounts.values()) {
+            sum += a.getBalanceGr();
+        }
+        return sum;
+    }
+
+    public long getBalance(long id) {
+        return accounts.get(id).getBalanceGr();
+    }
+}===== ./src/Task13/Bank/BankLocked.java =====
+package Task13.Bank;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+public class BankLocked {
+
+    private final Map<Long, BankAccountLock> accounts = new HashMap<>();
+
+    public void openAccount(long id, long initialPln) {
+        accounts.put(id, new BankAccountLock(id, initialPln));
+    }
+
+    public boolean transfer(long fromId, long toId, long amountGr) {
+        if (fromId == toId) return true;
+        if (amountGr <= 0) throw new IllegalArgumentException();
+
+        BankAccountLock from = accounts.get(fromId);
+        BankAccountLock to = accounts.get(toId);
+
+        long deadline = System.currentTimeMillis() + 1000;
+
+        while (System.currentTimeMillis() < deadline) {
+            boolean gotFirst = false, gotSecond = false;
+            try {
+                gotFirst = from.lock().tryLock(50, TimeUnit.MILLISECONDS);
+                if (!gotFirst) continue;
+
+                gotSecond = to.lock().tryLock(50, TimeUnit.MILLISECONDS);
+                if (!gotSecond) continue;
+
+                from.withdrawUnlocked(amountGr);
+                to.depositUnlocked(amountGr);
+                return true;
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return false;
+            } finally {
+                if (gotSecond) to.lock().unlock();
+                if (gotFirst) from.lock().unlock();
+            }
+        }
+        return false;
+    }
+
+    public long totalBalanceGr() {
+        long sum = 0;
+        for (BankAccountLock a : accounts.values()) {
+            sum += a.balanceGr();
+        }
+        return sum;
+    }
+
+    public long getBalance(long id) {
+        return accounts.get(id).balanceGr();
+    }
+}===== ./src/Task13/ParallelSum.java =====
+package Task13;
+
+import java.util.Random;
+
+public class ParallelSum {
+
+    private static final int SIZE = 1_000_000;
+    private static final int PARTS = 4;
+
+    static class PartialSumTask implements Runnable {
+        private final int[] data;
+        private final int from;             // włącznie
+        private final int to;               // wyłącznie
+        private final long[] results;       // WSPÓLNA tablica wyników
+        private final int index;            // MÓJ i tylko mój indeks w results
+
+        public PartialSumTask(int[] data, int from, int to, long[] results, int index) {
+            this.data = data;
+            this.from = from;
+            this.to = to;
+            this.results = results;
+            this.index = index;
+        }
+
+        @Override
+        public void run() {
+            long sum = 0;
+            for (int i = from; i < to; i++) {
+                sum += data[i];
+            }
+            results[index] = sum;
+        }
+    }
+
+    static long sequentialSum(int[] data) {
+        long sum = 0;
+        for (int x : data) sum += x;
+        return sum;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        int[] data = new int[SIZE];
+        Random random = new Random(10);
+        for (int i = 0; i < SIZE; i++) {
+            data[i] = random.nextInt();
+        }
+
+        long[] results = new long[PARTS];
+        Thread[] threads = new Thread[PARTS];
+
+        int base = SIZE / PARTS;
+        int from = 0;
+
+        for (int k = 0; k < PARTS; k++) {
+            int to = from + base;
+            threads[k] = new Thread(new PartialSumTask(data, from, to, results, k));
+            System.out.println("Part " + (k + 1) + ": (" + from + ", " + to + ")");
+            from = to;
+        }
+
+        for (Thread t : threads) t.start();
+        for (Thread t : threads) t.join();
+
+        long parallel = 0;
+        for (long r : results) parallel += r;
+
+        long sequential = sequentialSum(data);
+        System.out.println("Parallel:   " + parallel);
+        System.out.println("Sequential: " + sequential);
+        System.out.println(parallel == sequential ? "OK" : "ERROR");
+    }
+}
