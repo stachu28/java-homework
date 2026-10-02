@@ -19,7 +19,7 @@ public class Main {
             bank.openAccount(i, INITIAL_PLN);
         }
 
-        Random rnd = new Random(42);
+        Random rnd = new Random(10);
         ExecutorService pool = Executors.newFixedThreadPool(POOL_SIZE);
         AtomicInteger failed = new AtomicInteger();
         CompletableFuture<?>[] all = new CompletableFuture[TRANSFERS];
