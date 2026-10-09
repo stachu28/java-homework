@@ -11,5 +11,5 @@ public @interface PasswordValidation {
 
     boolean requireDigit() default true;
 
-    boolean requireSpecialChar() default true;
+    boolean requireSpecialChar() default false;
 }
