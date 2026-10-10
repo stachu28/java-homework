@@ -5,7 +5,7 @@ import lombok.*;
 import java.util.List;
 
 @Value
-@Builder(toBuilder = true, builderMethodName = "build", buildMethodName = "building")
+@Builder(toBuilder = true, builderMethodName = "create", buildMethodName = "build")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User {
     @EqualsAndHashCode.Include
