@@ -1,13 +1,22 @@
 package Task14.Zadanie1;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import lombok.extern.java.Log;
+
 import java.lang.reflect.Field;
 
+@Log
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PasswordValidator {
 
-    private PasswordValidator() {
+    public static boolean validate(Object obj) {
+        boolean result = check(obj);
+        log.info("Validation result: " + (result ? "OK" : "ERROR"));
+        return result;
     }
 
-    public static boolean validate(Object obj) {
+    public static boolean check(Object obj) {
         if (obj == null) {
             return false;
         }
@@ -28,6 +37,7 @@ public class PasswordValidator {
                 if (rule.requireSpecialChar() && password.chars().allMatch(Character::isLetterOrDigit))
                     return false;
             } catch (IllegalAccessException e) {
+                log.warning("No access to that field: " + e.getMessage());
                 return false;
             }
         }
